@@ -1,0 +1,15 @@
+﻿<Window x:Class="App_Serpientes_y_Escaleras.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:App_Serpientes_y_Escaleras"
+        mc:Ignorable="d"
+        Title="Serpientes y Escaleras" Height="800" Width="800">
+    <Canvas Name="MyCanvas" Focusable="True" MouseLeftButtonDown="OnClickEvent" Background="Gray">
+
+        <Label FontSize="26" FontWeight="ExtraBold" Content="Serpientes y Escaleras" Foreground="White" Canvas.Left="240"/>
+        <Label FontSize="14" FontWeight="ExtraBold" Content="Haga clic en cualquier parte del juego para tomar su turno, la CPU tomará su turno después de usted" Foreground="Chocolate" Canvas.Left="50" Canvas.Top="40"/>
+
+    </Canvas>
+</Window>
