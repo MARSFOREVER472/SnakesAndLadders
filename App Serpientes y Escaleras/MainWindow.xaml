@@ -14,5 +14,11 @@
         <Image Source="Images/player.gif" Width="30" Canvas.Left="70" Canvas.Top="709" />
         <Image Source="Images/opponent.gif" Width="30" Canvas.Left="407" Canvas.Top="709" />
 
+        <Label Name="txtPlayer" FontSize="12" FontWeight="Bold" Content="00" Canvas.Left="105" Canvas.Top="709" />
+        <Label Name="txtPlayerPosition" FontSize="12" FontWeight="Bold" Content="Player is @ 00" Canvas.Left="105" Canvas.Top="733" />
+        
+        <Label Name="txtOpponent" FontSize="12" FontWeight="Bold" Content="00" Canvas.Left="450" Canvas.Top="709" />
+        <Label Name="txtOpponentPosition" FontSize="12" FontWeight="Bold" Content="CPU is @ 00" Canvas.Left="450" Canvas.Top="733" />
+
     </Canvas>
 </Window>
