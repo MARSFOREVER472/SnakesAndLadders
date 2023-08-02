@@ -9,7 +9,10 @@
     <Canvas Name="MyCanvas" Focusable="True" MouseLeftButtonDown="OnClickEvent" Background="Gray">
 
         <Label FontSize="26" FontWeight="ExtraBold" Content="Serpientes y Escaleras" Foreground="White" Canvas.Left="240"/>
-        <Label FontSize="14" FontWeight="ExtraBold" Content="Haga clic en cualquier parte del juego para tomar su turno, la CPU tomará su turno después de usted" Foreground="Chocolate" Canvas.Left="50" Canvas.Top="40"/>
+        <Label FontSize="14" FontWeight="Bold" Content="Haga clic en cualquier parte del juego para tomar su turno, la CPU tomará su turno después de usted" Foreground="Chocolate" Canvas.Left="50" Canvas.Top="40"/>
+
+        <Image Source="Images/player.gif" Width="30" Canvas.Left="70" Canvas.Top="709" />
+        <Image Source="Images/opponent.gif" Width="30" Canvas.Left="407" Canvas.Top="709" />
 
     </Canvas>
 </Window>
