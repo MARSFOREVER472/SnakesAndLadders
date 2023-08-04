@@ -19,6 +19,8 @@ namespace App_Serpientes_y_Escaleras
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+    /// Encuentra las imágenes @ mooict.com y busca el juego de serpientes y escaleras.
+
     public partial class MainWindow : Window
     {
         Rectangle landingRec; // El landingRec ayudará a identificar los rectángulos en el tablero.
