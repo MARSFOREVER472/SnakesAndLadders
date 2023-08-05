@@ -11,14 +11,14 @@
         <Label FontSize="20" FontWeight="ExtraBold" Content="Serpientes y Escaleras" Foreground="White" Canvas.Left="250" Canvas.Top="-10"/>
         <Label FontSize="12" FontWeight="Bold" Content="Haga clic en cualquier parte del juego para tomar su turno, la CPU tomará su turno después de usted" Foreground="Chocolate" Canvas.Left="75" Canvas.Top="17"/>
 
-        <Image Source="Images/player.gif" Width="30" Canvas.Left="70" Canvas.Top="709" />
-        <Image Source="Images/opponent.gif" Width="30" Canvas.Left="407" Canvas.Top="709" />
+        <Image Source="Images/player.gif" Width="30" Canvas.Left="700" Canvas.Top="200" />
+        <Image Source="Images/opponent.gif" Width="30" Canvas.Left="700" Canvas.Top="500" />
 
-        <Label Name="txtPlayer" FontSize="12" FontWeight="Bold" Content="00" Canvas.Left="105" Canvas.Top="709" />
-        <Label Name="txtPlayerPosition" FontSize="12" FontWeight="Bold" Content="Player is @ 00" Canvas.Left="105" Canvas.Top="733" />
+        <Label Name="txtPlayer" FontSize="12" FontWeight="Bold" Content="00" Canvas.Left="705" Canvas.Top="250" />
+        <Label Name="txtPlayerPosition" FontSize="12" FontWeight="Bold" Content="Player is @ 00" Canvas.Left="680" Canvas.Top="270" />
 
-        <Label Name="txtOpponent" FontSize="12" FontWeight="Bold" Content="00" Canvas.Left="450" Canvas.Top="709" />
-        <Label Name="txtOpponentPosition" FontSize="12" FontWeight="Bold" Content="CPU is @ 00" Canvas.Left="450" Canvas.Top="733" />
+        <Label Name="txtOpponent" FontSize="12" FontWeight="Bold" Content="00" Canvas.Left="705" Canvas.Top="555" />
+        <Label Name="txtOpponentPosition" FontSize="12" FontWeight="Bold" Content="CPU is @ 00" Canvas.Left="680" Canvas.Top="575" />
 
     </Canvas>
 </Window>

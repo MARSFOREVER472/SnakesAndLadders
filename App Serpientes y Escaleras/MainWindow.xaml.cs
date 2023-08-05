@@ -91,8 +91,8 @@ namespace App_Serpientes_y_Escaleras
 
             // Las dos líneas a continuación importan las imágenes para el jugador y la CPU y las adjuntan al pincel de imagen que creamos anteriormente.
 
-            playerImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/player.gif")); // Para el jugador.
-            opponentImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/opponent.gif")); // Para la CPU.
+            playerImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/player.gif")); // Para el jugador.
+            opponentImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/opponent.gif")); // Para la CPU.
 
             // Este es el bucle principal "for" en donde haremos el tablero del juego.
             // Con este bucle se ejecutará 100 veces dentro de esta función.
@@ -112,7 +112,7 @@ namespace App_Serpientes_y_Escaleras
                 // Dentro del nuevo "Uri" puede ver que estamos agregando el número entero de imágenes allí también, esto se debe a que tenemos nombres de imágenes de 0.jpg a 99.jpg.
                 // Así que a medida que el bucle vaya aumentando, el entero de esta imagen también aumentará y podremos capturar todas las imágenes para el tablero.
 
-                tileImages.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/" + images + ".jpg"));
+                tileImages.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/" + images + ".jpg"));
 
                 // Debajo estamos creando un nuevo rectángulo llamado "box".
                 // Con este rectángulo tendrá 60 x 60 de alto y ancho respectivamente, el relleno son las imágenes de los mosaicos y un borde negro alrededor de ellas.
