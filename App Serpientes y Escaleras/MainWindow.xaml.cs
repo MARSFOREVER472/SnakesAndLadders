@@ -187,6 +187,50 @@ namespace App_Serpientes_y_Escaleras
                 // Fin del ciclo "for".
 
             }
+
+            // Fuera del bucle de la placa principal, ahora podemos configurar el temporizador.
+
+            gameTimer.Tick += GameTimerEvent; // Enlaza el evento del temporizador del juego al tic del temporizador.
+            gameTimer.Interval = TimeSpan.FromSeconds(2); // Con este temporizador marcará cada 0,2 segundos.
+
+            // Configura el rectángulo del jugador.
+            // El rectángulo del jugador tendrá 30 x 30 de alto y ancho respectivamente, tendrá también la imagen del jugador como relleno y por último un borde de 2 píxeles.
+
+            player = new Rectangle
+            {
+                Height = 30, // Altura del rectángulo.
+                Width = 30, // Ancho del rectángulo.
+                Fill = playerImage, // Relleno del rectángulo del jugador.
+                StrokeThickness = 2 // Lo hará 2 oportunidades.
+            };
+
+            // Configura el rectángulo de la CPU de la misma manera que el jugador.
+
+            opponent = new Rectangle
+            {
+                Height = 30, // Altura del rectángulo.
+                Width = 30, // Ancho del rectángulo.
+                Fill = opponentImage, // Relleno del rectángulo del jugador.
+                StrokeThickness = 2 // Lo hará 2 oportunidades.
+            };
+
+            // Agrega tanto al jugador como a la CPU al lienzo.
+
+            MyCanvas.Children.Add(player);
+            MyCanvas.Children.Add(opponent);
+
+            // Ejecuta la función de mover las piezas y hace referencia al jugador y a la CPU dentro de ella.
+            // Ésta también hace referencia a dónde queremos que el jugador y la CPU se coloquen al comienzo del juego.
+
+            MoverPiezas(player, "box" + 0);
+            MoverPiezas(opponent, "box" + 0);
+        }
+
+        // Vamos a crear otro método para el temporizador.
+
+        private void GameTimerEvent(object sender, EventArgs e)
+        {
+
         }
 
         // Vamos a crear otro método que permita reiniciar el juego.
