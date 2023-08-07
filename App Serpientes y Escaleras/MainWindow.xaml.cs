@@ -250,9 +250,51 @@ namespace App_Serpientes_y_Escaleras
 
                     if (currentPosition < position)
                     {
-                        // EN INSTANTES...
+                        // Si es así, ahora agregamos 1 a la posición actual con cada marca.
+
+                        currentPosition++;
+                        i++; // Agrega 1 al "i" entero con cada marca.
+                        MoverPiezas(player, "box" + i); // Actualiza la posición del jugador usando la función de mover las piezas.
+                    }
+                    else // En caso contrario...
+                    {
+                        // Si el jugador de la ronda 1 se establece en falso, haga lo siguiente:
+
+                        playerTwoRound = true; // Ajusta a la ronda 2 del jugador en verdadero.
+
+                        // Ahora ejecuta la "i", que es la posición del jugador a través de la función de chequear el tablero de serpientes y escaleras.
+
+                        i = ChequearSerpientesYEscaleras(i);
+
+                        // Actualiza la posición del jugador hacia la función de mover las piezas.
+
+                        MoverPiezas(player, "box" + i);
+
+                        // Ahora que hemos terminado la ronda del jugador, necesitamos configurar la CPU para que haga su propia posición.
+
+                        opponentPosition = rand.Next(1, 7); // Genera un número aleatorio para la CPU.
+                        txtOpponent.Content = "Opponent rolled a " + currentPosition; // Muestra el número aleatorio en la etiqueta de texto de la CPU.
+                        opponentCurrentPosition = 0; // Establece la posición actual de la CPU en 0.
+                        tempPos = i; // Ahora pasaremos el valor de i dentro del entero temporal.
+                        txtPlayerPosition.Content = "Player is @ " + (tempPos + 1); // Muestra la posición actual del jugador en la etiqueta de posición del jugador.
+
+                        // El tablero que estamos generando en el juego generará una pieza de tablero de 0 a 99, por lo que agregaremos 1 a la posición del número entero temporal para mostrar la información actual sobre dónde se encuentra el jugador en el tablero del juego.
+
                     }
                 }
+
+                // A continuación esta declaración "if" verificará si el jugador ha llegado a la parte superior del tablero.
+
+                if (i == 99)
+                {
+                    // Si es así, detiene el tiempo del juego, se muestra un mensaje en la pantalla y cuando el jugador haga clic en el botón de "OK", ésta reiniciará el juego.
+
+                    gameTimer.Stop();
+                    MessageBox.Show("Game Over!, You Win" + Environment.NewLine + "Click OK to play again!");
+                    RestartGame();
+                }
+
+                // La declaración "if" del jugador termina aquí.
             }
         }
 
