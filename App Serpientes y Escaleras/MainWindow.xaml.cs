@@ -41,6 +41,11 @@ namespace App_Serpientes_y_Escaleras
         int i = -1;
         int j = -1;
 
+        // Posición y número entero de la posición actual del jugador.
+
+        int position;
+        int currentPosition;
+
         // Su posición y la posición actual de la CPU.
 
         int opponentPosition;
@@ -230,7 +235,25 @@ namespace App_Serpientes_y_Escaleras
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-            // EN INSTANTES...
+            // Este es el evento del temporizador del juego este evento moverá al jugador y al oponente en el tablero.
+            // En la declaración "if" a continuación, primero verificamos si el jugador de una ronda es verdadero y el jugador de dos rondas es falso.
+
+            if (playerOneRound == true && playerTwoRound == false)
+            {
+                // Si esta condición es verdadera entonces haremos lo siguiente:
+
+                // Compruebe si "i" es menor que el número total de piezas del tablero dentro de la lista de movimientos.
+
+                if (i < Moves.Count)
+                {
+                    // En caso afirmativo, ahora compruebe si la posición actual es menor que la posición que generamos con la clase aleatoria.
+
+                    if (currentPosition < position)
+                    {
+                        // EN INSTANTES...
+                    }
+                }
+            }
         }
 
         // Vamos a crear otro método que permita reiniciar el juego.
