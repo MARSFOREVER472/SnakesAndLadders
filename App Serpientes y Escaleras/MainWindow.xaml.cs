@@ -230,7 +230,7 @@ namespace App_Serpientes_y_Escaleras
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-
+            // EN INSTANTES...
         }
 
         // Vamos a crear otro método que permita reiniciar el juego.
