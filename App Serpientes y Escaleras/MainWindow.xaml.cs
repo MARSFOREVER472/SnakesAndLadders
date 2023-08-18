@@ -318,7 +318,24 @@ namespace App_Serpientes_y_Escaleras
 
         private void MoverPiezas(Rectangle player, string posName)
         {
-            // EN INSTANTES...
+            // - Con esta función moverá al jugador y a la CPU a través del tablero del juego.
+            // - La forma en que lo hace es muy simple, hemos agregado los rectángulos del tablero a la lista de movimientos.
+            // - Desde el bucle "foreach" de abajo podemos recorrer todos los rectángulos de esta lista.
+            // - También estamos verificando si alguno de los rectángulos tiene el posName, si lo tienen, vincularemos el rect de aterrizaje con ese rectángulo que se encuentra dentro del ciclo "foreach".
+            // - De esta manera podemos mover el rectángulo que se está pasando dentro de esta función y ejecutar el evento del temporizador para animarlo cuando ésta comienza.
+
+            foreach (Rectangle rectangulo in Moves)
+            {
+                if (rectangulo.Name == posName)
+                {
+                    landingRec = rectangulo;
+                }
+            }
+
+            // Las dos líneas aquí colocarán el objeto "player" que se pasa en esta función a la ubicación "landingRec".
+
+            Canvas.SetLeft(player, Canvas.GetLeft(landingRec) + player.Width / 2); // Línea horizontal.
+            Canvas.SetTop(player, Canvas.GetTop(landingRec) + player.Height / 2); // Línea vertical.
         }
     }
 }
