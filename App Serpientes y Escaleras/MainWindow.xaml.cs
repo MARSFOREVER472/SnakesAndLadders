@@ -79,7 +79,50 @@ namespace App_Serpientes_y_Escaleras
 
         private void OnClickEvent(object sender, MouseButtonEventArgs e)
         {
-            // EN INSTANTES...
+            // A continuación se muestra la declaración "if" que verifica si los valores booleanos del jugador 1 y 2 están configurados en falso a priori...
+            // Si es así, podemos hacer lo siguiente dentro de esta declaración...
+
+            if (playerOneRound == false && playerTwoRound == false)
+            {
+                position = rand.Next(1, 7); // Genera un número al azar de entre ambos jugadores.
+                txtPlayer.Content = "YOU ROLLED A " + position; // Muestra un número definido en el texto del jugador.
+                currentPosition = 0; // Se ajusta a la posición actual en 0.
+
+                // En la siguiente declaración a continuación vamos a comprobar si el número entero "i" es la posición actual del jugador en el juego.
+                // Si dicho número mencionado anteriormente es menor o igual que 99, entonces vamos a hacer lo siguiente...
+
+                if ((i + position) <= 99)
+                {
+                    playerOneRound = true; // Dentro de esta declaración, cambia la ronda del jugador a verdadero.
+                    gameTimer.Start(); // Inicializa el temporizador.
+                }
+                else // En caso contrario...
+                {
+                    // Si la condición es "FALSA" entonces haces lo siguiente:
+
+                    if (playerTwoRound == false)
+                    {
+                        // Chequea si la ronda del jugador 2 es falsa...
+
+                        playerTwoRound = true; // Cambia la modalidad de la ronda del jugador 2 a verdadera.
+                        opponentPosition = rand.Next(1, 7); // La posición de su rival será aleatoria.
+                        txtOpponent.Content = " OPPONENT ROLLED A " + opponentPosition; // Muestra un número definido en el texto de su rival.
+                        opponentCurrentPosition = 0; // La posición actual de su rival inicializa en 0.
+                        gameTimer.Start(); // Inicializa el temporizador para su rival.
+                    }
+                    else // En caso contrario...
+                    {
+                        // Si la ronda del jugador 2 es definitivamente verdadera cuando...
+
+                        gameTimer.Stop(); // Paraliza el temporizador para su rival.
+
+                        // A ambos jugadores les cambiaría su valor booleana a "FALSA"...
+
+                        playerOneRound = false; // Para el jugador.
+                        playerTwoRound = false; // Para su rival.
+                    }
+                }
+            }
         }
 
         // Vamos a crear un nuevo método para realizar algunos ajustes al juego.
