@@ -396,7 +396,168 @@ namespace App_Serpientes_y_Escaleras
 
         private int ChequearSerpientesYEscaleras(int numero)
         {
-            // Hay que retornar este método con una variable ya declarada.
+            // 1.- Esta es la función de serpientes de control o escaleras.
+            //     El objetivo de esta función es comprobar si el jugador...
+            //     ...aterrizó en la parte inferior de una escalera o en la parte superior de la serpiente.
+
+            // 2.- Esta función devolverá un número entero cuando se ejecute, es por eso que la hemos vinculado a los movimientos del jugador y del oponente.
+
+            // 3.- Hay varias declaraciones "if" dentro de esta función y puede ver si el número que se pasa dentro de esta función...
+            //     ...coincide con cualquiera de las condiciones if, cambiará el número a ese número final y lo devolverá al programa.
+
+            // 4.- De esta manera podemos simplemente comprobar si el jugador ha aterrizado en una escalera y luego moverlo hasta donde termina la escalera...
+            //     ...y si aterrizó en la serpiente, entonces podemos moverla hacia abajo hasta donde termina la serpiente.
+
+            // 5.- Esta función está diseñada para el tablero que estamos usando en este proyecto.
+            //     Si tiene otro tablero, es posible que deba cambiar estos números para que se adapten mejor a su tablero.
+
+            // Condición 1 (Cuando el número de la condición es menor que el valor de retorno, entonces se paró frente a la escalera para avanzar):
+
+            if (numero == 1) // Si hay una escalera en la casilla 1...
+            {
+                numero = 37; // Sube a la casilla número 37.
+            }
+
+            // Condición 2:
+
+            if (numero == 6) // Si hay una escalera en la casilla 6...
+            {
+                numero = 13; // Entonces pasa a la casilla número 13.
+            }
+
+            // Condición 3:
+
+            if (numero == 7) // Si hay una escalera en la casilla 7...
+            {
+                numero = 30; // Entonces pasa a la casilla número 30.
+            }
+
+            // Condición 4:
+
+            if (numero == 14) // Si hay una escalera en la casilla 14...
+            {
+                numero = 25; // Entonces pasa a la casilla número 25.
+            }
+
+            // Condición 5 (En caso contrario, si el número de la condición es mayor que el valor de retorno...
+            // ...entonces se encontró con una serpiente para retroceder en la casilla indicada donde se encuentra su cola):
+
+            if (numero == 15) // Si hay una serpiente en la casilla 15...
+            {
+                numero = 5; // Entonces cae a la casilla número 5.
+            }
+
+            // Condición 6:
+
+            if (numero == 20)
+            {
+                numero = 41;
+            }
+
+            // Condición 7:
+
+            if (numero == 27)
+            {
+                numero = 83;
+            }
+
+            // Condición 8:
+
+            if (numero == 35)
+            {
+                numero = 43;
+            }
+
+            // Condición 9:
+
+            if (numero == 45)
+            {
+                numero = 24;
+            }
+
+            // Condición 10:
+
+            if (numero == 48)
+            {
+                numero = 10;
+            }
+
+            // Condición 11:
+
+            if (numero == 50)
+            {
+                numero = 66;
+            }
+
+            // Condición 12:
+
+            if (numero == 61)
+            {
+                numero = 18;
+            }
+
+            // Condición 13:
+
+            if (numero == 63)
+            {
+                numero = 59;
+            }
+
+            // Condición 14:
+
+            if (numero == 70)
+            {
+                numero = 90;
+            }
+
+            // Condición 15:
+
+            if (numero == 73)
+            {
+                numero = 52;
+            }
+
+            // Condición 16:
+
+            if (numero == 77)
+            {
+                numero = 97;
+            }
+
+            // Condición 17:
+
+            if (numero == 86)
+            {
+                numero = 93;
+            }
+
+            // Condición 18:
+
+            if (numero == 88)
+            {
+                numero = 67;
+            }
+
+            // Condición 19:
+
+            if (numero == 91)
+            {
+                numero = 87;
+            }
+
+            // Condición 20:
+
+            if (numero == 94)
+            {
+                numero = 74;
+            }
+
+            // Condición 21:
+
+            if (numero == 98)
+            {
+                numero = 79;
+            }
 
             return numero;
         }
