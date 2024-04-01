@@ -79,7 +79,50 @@ namespace App_Serpientes_y_Escaleras
 
         private void OnClickEvent(object sender, MouseButtonEventArgs e)
         {
-            // EN INSTANTES...
+            // A continuación se muestra la declaración "if" que verifica si los valores booleanos del jugador 1 y 2 están configurados en falso a priori...
+            // Si es así, podemos hacer lo siguiente dentro de esta declaración...
+
+            if (playerOneRound == false && playerTwoRound == false)
+            {
+                position = rand.Next(1, 7); // Genera un número al azar de entre ambos jugadores.
+                txtPlayer.Content = "YOU ROLLED A " + position; // Muestra un número definido en el texto del jugador.
+                currentPosition = 0; // Se ajusta a la posición actual en 0.
+
+                // En la siguiente declaración a continuación vamos a comprobar si el número entero "i" es la posición actual del jugador en el juego.
+                // Si dicho número mencionado anteriormente es menor o igual que 99, entonces vamos a hacer lo siguiente...
+
+                if ((i + position) <= 99)
+                {
+                    playerOneRound = true; // Dentro de esta declaración, cambia la ronda del jugador a verdadero.
+                    gameTimer.Start(); // Inicializa el temporizador.
+                }
+                else // En caso contrario...
+                {
+                    // Si la condición es "FALSA" entonces haces lo siguiente:
+
+                    if (playerTwoRound == false)
+                    {
+                        // Chequea si la ronda del jugador 2 es falsa...
+
+                        playerTwoRound = true; // Cambia la modalidad de la ronda del jugador 2 a verdadera.
+                        opponentPosition = rand.Next(1, 7); // La posición de su rival será aleatoria.
+                        txtOpponent.Content = " OPPONENT ROLLED A " + opponentPosition; // Muestra un número definido en el texto de su rival.
+                        opponentCurrentPosition = 0; // La posición actual de su rival inicializa en 0.
+                        gameTimer.Start(); // Inicializa el temporizador para su rival.
+                    }
+                    else // En caso contrario...
+                    {
+                        // Si la ronda del jugador 2 es definitivamente verdadera cuando...
+
+                        gameTimer.Stop(); // Paraliza el temporizador para su rival.
+
+                        // A ambos jugadores les cambiaría su valor booleana a "FALSA"...
+
+                        playerOneRound = false; // Para el jugador.
+                        playerTwoRound = false; // Para su rival.
+                    }
+                }
+            }
         }
 
         // Vamos a crear un nuevo método para realizar algunos ajustes al juego.
@@ -196,7 +239,7 @@ namespace App_Serpientes_y_Escaleras
             // Fuera del bucle de la placa principal, ahora podemos configurar el temporizador.
 
             gameTimer.Tick += GameTimerEvent; // Enlaza el evento del temporizador del juego al tic del temporizador.
-            gameTimer.Interval = TimeSpan.FromSeconds(2); // Con este temporizador marcará cada 0,2 segundos.
+            gameTimer.Interval = TimeSpan.FromSeconds(.2); // Con este temporizador marcará cada 0,2 segundos.
 
             // Configura el rectángulo del jugador.
             // El rectángulo del jugador tendrá 30 x 30 de alto y ancho respectivamente, tendrá también la imagen del jugador como relleno y por último un borde de 2 píxeles.
@@ -296,6 +339,50 @@ namespace App_Serpientes_y_Escaleras
 
                 // La declaración "if" del jugador termina aquí.
             }
+
+            // Esta sección a continuación es para el rival, esto sólo se ejecutará cuando la ronda del jugador 2 esté configurada en verdadero.
+
+            if (playerTwoRound == true)
+            {
+                // Igual que antes, verificamos si la posición del rival es menor que los números del tablero.
+
+                if (j < Moves.Count)
+                {
+                    // En caso afirmativo, estaremos comprobando si la posición actual del rival es menor que la posición generada por el sistema...
+                    // ...y estamos comprobando si la CPU tiene más movimientos por delante, de esta manera podemos evitar que el rival pueda hacer movimientos de último minuto y permitir que el jugador se mueva después de su turno.
+
+                    if (opponentCurrentPosition < currentPosition && j < (currentPosition + 101))
+                    {
+                        opponentCurrentPosition++; // Incrementa la posición previa del rival.
+                        j++; // Incrementa la posición actual del rival.
+                        MoverPiezas(opponent, "box" + j); // Muestra los movimientos a través del llamado de la función (MoverPiezas()).
+                    }
+                    else // En caso contrario...
+                    {
+                        // Si el rival ha tomado su turno entonces hacemos lo siguiente:
+
+                        // 1.- Establece las rondas de los jugadores 1 y 2 en falso.
+
+                        playerOneRound = false;
+                        playerTwoRound = false;
+
+                        // 2.- Comprobar la posición del rival con un llamado de la función (ChequearSerpientesYEscaleras()).
+
+                        j = ChequearSerpientesYEscaleras(j);
+                        MoverPiezas(opponent, "box" + j);
+
+                        // 3.- Establecer posición del temporizador del rival y luego mostrarlo en pantalla.
+
+                        tempPos = j;
+                        txtOpponentPosition.Content = "OPPONENT IS @ " + (tempPos + 1);
+
+                        // 4.- Detiene el temporizador.
+
+                        gameTimer.Stop();
+                    }
+
+                }
+            }
         }
 
         // Vamos a crear otro método que permita reiniciar el juego.
@@ -309,7 +396,168 @@ namespace App_Serpientes_y_Escaleras
 
         private int ChequearSerpientesYEscaleras(int numero)
         {
-            // Hay que retornar este método con una variable ya declarada.
+            // 1.- Esta es la función de serpientes de control o escaleras.
+            //     El objetivo de esta función es comprobar si el jugador...
+            //     ...aterrizó en la parte inferior de una escalera o en la parte superior de la serpiente.
+
+            // 2.- Esta función devolverá un número entero cuando se ejecute, es por eso que la hemos vinculado a los movimientos del jugador y del oponente.
+
+            // 3.- Hay varias declaraciones "if" dentro de esta función y puede ver si el número que se pasa dentro de esta función...
+            //     ...coincide con cualquiera de las condiciones if, cambiará el número a ese número final y lo devolverá al programa.
+
+            // 4.- De esta manera podemos simplemente comprobar si el jugador ha aterrizado en una escalera y luego moverlo hasta donde termina la escalera...
+            //     ...y si aterrizó en la serpiente, entonces podemos moverla hacia abajo hasta donde termina la serpiente.
+
+            // 5.- Esta función está diseñada para el tablero que estamos usando en este proyecto.
+            //     Si tiene otro tablero, es posible que deba cambiar estos números para que se adapten mejor a su tablero.
+
+            // Condición 1 (Cuando el número de la condición es menor que el valor de retorno, entonces se paró frente a la escalera para avanzar):
+
+            if (numero == 1) // Si hay una escalera en la casilla 1...
+            {
+                numero = 37; // Sube a la casilla número 37.
+            }
+
+            // Condición 2:
+
+            if (numero == 6) // Si hay una escalera en la casilla 6...
+            {
+                numero = 13; // Entonces pasa a la casilla número 13.
+            }
+
+            // Condición 3:
+
+            if (numero == 7) // Si hay una escalera en la casilla 7...
+            {
+                numero = 30; // Entonces pasa a la casilla número 30.
+            }
+
+            // Condición 4:
+
+            if (numero == 14) // Si hay una escalera en la casilla 14...
+            {
+                numero = 25; // Entonces pasa a la casilla número 25.
+            }
+
+            // Condición 5 (En caso contrario, si el número de la condición es mayor que el valor de retorno...
+            // ...entonces se encontró con una serpiente para retroceder en la casilla indicada donde se encuentra su cola):
+
+            if (numero == 15) // Si hay una serpiente en la casilla 15...
+            {
+                numero = 5; // Entonces cae a la casilla número 5.
+            }
+
+            // Condición 6:
+
+            if (numero == 20)
+            {
+                numero = 41;
+            }
+
+            // Condición 7:
+
+            if (numero == 27)
+            {
+                numero = 83;
+            }
+
+            // Condición 8:
+
+            if (numero == 35)
+            {
+                numero = 43;
+            }
+
+            // Condición 9:
+
+            if (numero == 45)
+            {
+                numero = 24;
+            }
+
+            // Condición 10:
+
+            if (numero == 48)
+            {
+                numero = 10;
+            }
+
+            // Condición 11:
+
+            if (numero == 50)
+            {
+                numero = 66;
+            }
+
+            // Condición 12:
+
+            if (numero == 61)
+            {
+                numero = 18;
+            }
+
+            // Condición 13:
+
+            if (numero == 63)
+            {
+                numero = 59;
+            }
+
+            // Condición 14:
+
+            if (numero == 70)
+            {
+                numero = 90;
+            }
+
+            // Condición 15:
+
+            if (numero == 73)
+            {
+                numero = 52;
+            }
+
+            // Condición 16:
+
+            if (numero == 77)
+            {
+                numero = 97;
+            }
+
+            // Condición 17:
+
+            if (numero == 86)
+            {
+                numero = 93;
+            }
+
+            // Condición 18:
+
+            if (numero == 88)
+            {
+                numero = 67;
+            }
+
+            // Condición 19:
+
+            if (numero == 91)
+            {
+                numero = 87;
+            }
+
+            // Condición 20:
+
+            if (numero == 94)
+            {
+                numero = 74;
+            }
+
+            // Condición 21:
+
+            if (numero == 98)
+            {
+                numero = 79;
+            }
 
             return numero;
         }
