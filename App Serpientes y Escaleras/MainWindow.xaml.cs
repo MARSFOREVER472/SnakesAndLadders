@@ -239,7 +239,7 @@ namespace App_Serpientes_y_Escaleras
             // Fuera del bucle de la placa principal, ahora podemos configurar el temporizador.
 
             gameTimer.Tick += GameTimerEvent; // Enlaza el evento del temporizador del juego al tic del temporizador.
-            gameTimer.Interval = TimeSpan.FromSeconds(2); // Con este temporizador marcará cada 0,2 segundos.
+            gameTimer.Interval = TimeSpan.FromSeconds(.2); // Con este temporizador marcará cada 0,2 segundos.
 
             // Configura el rectángulo del jugador.
             // El rectángulo del jugador tendrá 30 x 30 de alto y ancho respectivamente, tendrá también la imagen del jugador como relleno y por último un borde de 2 píxeles.
@@ -338,6 +338,50 @@ namespace App_Serpientes_y_Escaleras
                 }
 
                 // La declaración "if" del jugador termina aquí.
+            }
+
+            // Esta sección a continuación es para el rival, esto sólo se ejecutará cuando la ronda del jugador 2 esté configurada en verdadero.
+
+            if (playerTwoRound == true)
+            {
+                // Igual que antes, verificamos si la posición del rival es menor que los números del tablero.
+
+                if (j < Moves.Count)
+                {
+                    // En caso afirmativo, estaremos comprobando si la posición actual del rival es menor que la posición generada por el sistema...
+                    // ...y estamos comprobando si la CPU tiene más movimientos por delante, de esta manera podemos evitar que el rival pueda hacer movimientos de último minuto y permitir que el jugador se mueva después de su turno.
+
+                    if (opponentCurrentPosition < currentPosition && j < (currentPosition + 101))
+                    {
+                        opponentCurrentPosition++; // Incrementa la posición previa del rival.
+                        j++; // Incrementa la posición actual del rival.
+                        MoverPiezas(opponent, "box" + j); // Muestra los movimientos a través del llamado de la función (MoverPiezas()).
+                    }
+                    else // En caso contrario...
+                    {
+                        // Si el rival ha tomado su turno entonces hacemos lo siguiente:
+
+                        // 1.- Establece las rondas de los jugadores 1 y 2 en falso.
+
+                        playerOneRound = false;
+                        playerTwoRound = false;
+
+                        // 2.- Comprobar la posición del rival con un llamado de la función (ChequearSerpientesYEscaleras()).
+
+                        j = ChequearSerpientesYEscaleras(j);
+                        MoverPiezas(opponent, "box" + j);
+
+                        // 3.- Establecer posición del temporizador del rival y luego mostrarlo en pantalla.
+
+                        tempPos = j;
+                        txtOpponentPosition.Content = "OPPONENT IS @ " + (tempPos + 1);
+
+                        // 4.- Detiene el temporizador.
+
+                        gameTimer.Stop();
+                    }
+
+                }
             }
         }
 
