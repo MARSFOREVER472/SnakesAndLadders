@@ -389,7 +389,42 @@ namespace App_Serpientes_y_Escaleras
 
         private void RestartGame()
         {
-            // EN INSTANTES...
+            // Esta es la función de reiniciar el juego, restablecerá todo a los valores predeterminados cuando se ejecute.
+
+            // Si las variables I y J volvemos a -1 y establecemos al jugador y al rival a la posición 0 en el tablero...
+
+            i = -1;
+            j = -1;
+
+            MoverPiezas(player, "box" + 0); // Para mover al jugador en esa posición.
+            MoverPiezas(opponent, "box" + 0); // Para mover al rival en esa posición.
+
+            // Ajusta las posiciones actual y previa del jugador en 0.
+
+            position = 0;
+            currentPosition = 0;
+
+            // Ajusta las posiciones actual y previa del rival en 0.
+
+            opponentPosition = 0;
+            opponentCurrentPosition = 0;
+
+            // Ajusta a las rondas 1 y 2 del jugador en "false".
+
+            playerOneRound = false;
+            playerTwoRound = false;
+
+            // Restablece las etiquetas de jugador y del rival a su contenido predeterminado.
+
+            txtPlayer.Content = "YOU ROLLED A " + position;
+            txtPlayerPosition.Content = "PLAYER IS @ 1";
+
+            txtOpponent.Content = "OPPONENT ROLLED A " + opponentPosition;
+            txtOpponentPosition.Content = "OPPONENT IS @ 1";
+
+            // Detiene el temporizador.
+
+            gameTimer.Stop();
         }
 
         // Vamos a crear otro método que permita verificar todo el tablero mediante números.
@@ -449,114 +484,114 @@ namespace App_Serpientes_y_Escaleras
 
             // Condición 6:
 
-            if (numero == 20)
+            if (numero == 20) // Si hay una escalera en la casilla 20...
             {
-                numero = 41;
+                numero = 41; // Entonces pasa a la casilla número 41.
             }
 
             // Condición 7:
 
-            if (numero == 27)
+            if (numero == 27) // Si hay una escalera en la casilla 27...
             {
-                numero = 83;
+                numero = 83; // Entonces pasa a la casilla número 83.
             }
 
             // Condición 8:
 
-            if (numero == 35)
+            if (numero == 35) // Si hay una escalera en la casilla 35...
             {
-                numero = 43;
+                numero = 43; // Entonces pasa a la casilla número 43.
             }
 
             // Condición 9:
 
-            if (numero == 45)
+            if (numero == 45) // Si hay una serpiente en la casilla 45...
             {
-                numero = 24;
+                numero = 24; // Entonces cae a la casilla número 24.
             }
 
             // Condición 10:
 
-            if (numero == 48)
+            if (numero == 48) // Si hay una serpiente en la casilla 48...
             {
-                numero = 10;
+                numero = 10; // Entonces cae a la casilla número 10.
             }
 
             // Condición 11:
 
-            if (numero == 50)
+            if (numero == 50) // Si hay una escalera en la casilla 50...
             {
-                numero = 66;
+                numero = 66; // Entonces pasa a la casilla número 66.
             }
 
             // Condición 12:
 
-            if (numero == 61)
+            if (numero == 61) // Si hay una serpiente en la casilla 61...
             {
-                numero = 18;
+                numero = 18; // Entonces cae a la casilla número 18.
             }
 
             // Condición 13:
 
-            if (numero == 63)
+            if (numero == 63) // Si hay una serpiente en la casilla 63...
             {
-                numero = 59;
+                numero = 59; // Entonces cae a la casilla número 59.
             }
 
             // Condición 14:
 
-            if (numero == 70)
+            if (numero == 70) // Si hay una escalera en la casilla 70...
             {
-                numero = 90;
+                numero = 90; // Entonces pasa a la casilla número 90.
             }
 
             // Condición 15:
 
-            if (numero == 73)
+            if (numero == 73) // Si hay una serpiente en la casilla 73...
             {
-                numero = 52;
+                numero = 52; // Entonces cae a la casilla número 52.
             }
 
             // Condición 16:
 
-            if (numero == 77)
+            if (numero == 77) // Si hay una escalera en la casilla 77...
             {
-                numero = 97;
+                numero = 97; // Entonces pasa a la casilla número 97.
             }
 
             // Condición 17:
 
-            if (numero == 86)
+            if (numero == 86) // Si hay una escalera en la casilla 86...
             {
-                numero = 93;
+                numero = 93; // Entonces avanza a la casilla número 93.
             }
 
             // Condición 18:
 
-            if (numero == 88)
+            if (numero == 88) // Si hay una serpiente en la casilla 88...
             {
-                numero = 67;
+                numero = 67; // Entonces cae a la casilla número 67.
             }
 
             // Condición 19:
 
-            if (numero == 91)
+            if (numero == 91) // Si hay una serpiente en la casilla 91...
             {
-                numero = 87;
+                numero = 87; // Entonces cae a la casilla número 87.
             }
 
             // Condición 20:
 
-            if (numero == 94)
+            if (numero == 94) // Si hay una serpiente en la casilla 94...
             {
-                numero = 74;
+                numero = 74; // Entonces cae a la casilla número 74.
             }
 
             // Condición 21:
 
-            if (numero == 98)
+            if (numero == 98) // Si hay una serpiente en la casilla 98...
             {
-                numero = 79;
+                numero = 79; // Entonces cae a la casilla número 79.
             }
 
             return numero;
