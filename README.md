@@ -6,7 +6,7 @@
 
 **Reglas del juego:** 
 
-1.- Los jugadores comienzan con una ficha que representa a cada uno de ellos en el casillero inicial usualmente el correspondiente al número 1 y se turnan para lanzar un dado o girar un dial numerado que les indica la cantidad de casillas que deben avanzar.
+1.- _Los jugadores comienzan con una ficha que representa a cada uno de ellos en el casillero inicial usualmente el correspondiente al número 1 y se turnan para lanzar un dado o girar un dial numerado que les indica la cantidad de casillas que deben avanzar._
 
 2.- Las fichas se mueven según la enumeración del tablero, en sentido ascendente; la ruta en el tablero se asemeja a un bustrafedón que avanza desde el extremo inferior izquierdo hacia el extremo superior izquierdo y pasa una vez por cada casillero.
 
