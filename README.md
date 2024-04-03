@@ -10,4 +10,4 @@
 
 2.- **_Las fichas se mueven según la enumeración del tablero, en sentido ascendente; la ruta en el tablero se asemeja a un bustrafedón que avanza desde el extremo inferior izquierdo hacia el extremo superior izquierdo y pasa una vez por cada casillero._**
 
-3.- _Si al finalizar un movimiento un jugador cae en un casillero en donde comienza una escalera, sube por ella hasta el casillero en donde ésta termina. Si, por el contrario, cae en uno en donde comienza la cabeza de una serpiente, desciende por ésta hasta el casillero en donde finaliza su cola._
+3.- **_Si al finalizar un movimiento un jugador cae en un casillero en donde comienza una escalera, sube por ella hasta el casillero en donde ésta termina. Si, por el contrario, cae en uno en donde comienza la cabeza de una serpiente, desciende por ésta hasta el casillero en donde finaliza su cola._**
