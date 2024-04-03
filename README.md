@@ -1,6 +1,6 @@
 # SnakesAndLadders
 
-_Con este juego estimula la sana competencia._
+**_Con este juego estimula la sana competencia._**
 
 **"Avanza, toma un atajo, una serpiente te puede morder y tendrás que retroceder. ¡Cualquiera puede ganar!"**
 
